@@ -1,79 +1,91 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
+* { box-sizing: border-box; }
+body, #root {
   margin: 0;
-}
-
-:root {
-  --primary-color: hsl(0, 60%, 20%);
-  --secondary-color: hsl(0, 60%, 35%);
-  --highlight-color: antiquewhite;
-
-  --text-primary-color: var(var(--primary-color));
-
-  --muted-color-100: azure;
-}
-
-body {
-  font-family: kanit;
-  padding: 50px;
-  background-color: var(--muted-color-100);
+  min-height: 100vh;
+  background: #0b1020;
+  color: #e6edf3;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 .app-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 16px 60px;
 }
 
-.app-wrapper .app-title {
-  font-size: 60px;
-  color: var(--primary-color);
-  margin-bottom: 20px;
+.app-title {
+  margin: 0 0 20px;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fb923c, #f97316);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .post-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  gap: 16px;
 }
 
 .post-item {
-  font-size: 30px;
-  color: var(--primary-color);
-  background-color: var(--highlight-color);
-  border-radius: 10px;
-  border: 5px solid var(--secondary-color);
-  padding: 40px;
-  width: 50%;
-  margin-bottom: 30px;
+  border-radius: 16px;
+  border: 1px solid #ffffff1a;
+  background: linear-gradient(135deg, #ffedd5, #fed7aa); /* ส้มอ่อน */
+  color: #3b1a00;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, .25);
 }
 
-.post-item .post-header {
+.post-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.post-item .post-content {
-  margin-bottom: 30px;
+.post-title { margin: 0; font-size: 20px; }
+
+.post-social-media-stats {
+  font-weight: 700;
 }
 
-.post-actions .like-button {
-  margin-right: 30px;
+.post-content {
+  margin: 10px 0 14px;
+  line-height: 1.6;
 }
 
-button {
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.like-button,
+.dislike-button {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid #ffffff22;
+  font-weight: 700;
   cursor: pointer;
-  background-color: var(--secondary-color);
-  border-radius: 30px;
-  padding: 20px;
-  width: 256px;
-  color: white;
-  font-size: 30px;
-  outline: none;
-  border: 5px solid var(--secondary-color);
+  transition: transform .06s, filter .2s, box-shadow .2s;
 }
+
+.like-button {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #06210f;
+  box-shadow: 0 10px 22px rgba(34,197,94,.25);
+}
+.like-button:hover { filter: brightness(1.06); }
+.like-button:active { transform: translateY(1px); }
+
+.dislike-button {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: #2b0606;
+  box-shadow: 0 10px 22px rgba(239,68,68,.25);
+}
+.dislike-button:hover { filter: brightness(1.06); }
+.dislike-button:active { transform: translateY(1px); }
+
+.stats-topic { opacity: .85; }
+.post-likes { font-weight: 800; }
